@@ -1,7 +1,7 @@
 {
   "name": "autowater",
   "version": "1.0.0",
-  "description": "",
+  "description": "System to record soil moisture and send a signal to add water when low.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
