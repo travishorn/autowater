@@ -1,0 +1,19 @@
+{
+  "name": "autowater",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Travis Horn (https://travishorn.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "netlify-cli": "^2.54.0"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
