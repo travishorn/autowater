@@ -1,4 +1,5 @@
 const path = require("path");
+const { v4: uuid } = require("uuid");
 
 /*
  * dotenv isn't picking up .env file automatically for some reason. Setting
@@ -15,7 +16,8 @@ if (typeof process.argv[2] === "undefined") {
 }
 
 const token = jwt.sign({
-  sub: process.argv[2]
+  sub: process.argv[2],
+  jti: uuid()
 }, process.env.JWT_SECRET);
 
 console.log(`Sensor name: ${process.argv[2]}`);
