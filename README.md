@@ -10,13 +10,6 @@ Install dependencies
 npm install
 ```
 
-Create a `.env` file with a `JWT_SECRET` of your choosing. Or, set the
-environment variable using any other method you like.
-
-```
-JWT_SECRET=secret123
-```
-
 Run the server
 
 ```
@@ -30,24 +23,14 @@ Send a request like the following.
 ```
 curl --request POST \
   --url http://localhost:8888/.netlify/functions/measurement \
-  --header 'authorization: Bearer YOUR_JWT_HERE' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data moisture=0.5 \
   --data recorded_at=2020-06-24T22:19:22+0000
 ```
 
-Note that each request must contain a valid JWT.
-
-### Generate a JSON Web Token
-
-Run the generation script and pass it a sensor name.
-
-```
-node src/generate-sensor-token.js sensor-00
-```
-
 ## To do
 
+- Authentication
 - Store incoming measurements in a database
 - Create method for saving settings to database
 - Measurement method should check measurement against minimum in settings

@@ -1,7 +1,5 @@
 require("dotenv").config();
 
-const jwt = require("jsonwebtoken");
-
 exports.handler = (event, context, callback) => {
   console.log(event);
 
@@ -10,28 +8,13 @@ exports.handler = (event, context, callback) => {
     body: `Expected httpMethod to be POST. Received ${event.httpMethod}.`
   });
 
-  if (typeof event.headers.authorization === "undefined") return callback(null, {
-    statusCode: 401,
-    body: "Expected authorization information. Received none."
-  });
+  /*
+   * To do: Check authentication
+   */
 
-  const [ authType, authToken ] = event.headers.authorization.split(" ");
-
-  if (authType !== "Bearer") return callback(null, {
-    statusCode: 401,
-    body: `Expected authorization type to be Bearer. Received ${authType}.`
-  });
-
-  let payload;
-
-  try {
-    payload = jwt.verify(authToken, process.env.JWT_SECRET);
-  } catch(err) {
-    return callback(null, {
-      statusCode: 401,
-      body: `Could not verify JWT token: ${err.message}`
-    });
-  }
+  /*
+   * To do: Save measurement to database
+   */
 
   callback(null, {
     statusCode: 200,
